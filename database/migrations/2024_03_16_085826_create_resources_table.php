@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('group')->nullable();
+            $table->string('unit')->nullable();
             $table->timestamps();
         });
     }

@@ -3,13 +3,13 @@
     <div class="stackblitz-container material3">
         <div class="control-section">
             <div class="content-wrapper">
-                <div id="overviewSample"></div>
+                <div id="Gantt"></div>
             </div>
         </div>
     </div>
 
     @push('styles')
-        <link href="https://cdn.syncfusion.com/ej2/25.1.35/material3.css" rel="stylesheet">
+        <link href="https://cdn.syncfusion.com/ej2/25.1.35/material.css" rel="stylesheet">
         <style>
             body {
                 touch-action: none;

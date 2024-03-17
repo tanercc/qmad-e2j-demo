@@ -1,172 +1,118 @@
-var sportsData = [
-    {ID: 'Default', Text: 'Default'},
-    {ID: 'Grid', Text: 'Grid'},
-    {ID: 'Chart', Text: 'Chart'},
-];
-var theme;
-var style;
+// Registering Syncfusion license key
+ej.base.registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCekx3QHxbf1x0ZFdMYFpbQHdPMyBoS35RckVgWHlfdnZQRGRYUUJ/');
+ej.base.enableRipple(true);
 
-var gantt = new ej.gantt.Gantt({
-    dataSource: getData(),
-    resources: getResources(),
-    height: '500px',
-    width: '100%',
-    highlightWeekends: true,
-    allowSelection: true,
-    allowSorting: true,
-    treeColumnIndex: 1,
-    viewType: 'ProjectView',
-    taskFields: {
-        id: 'TaskId',
-        name: 'TaskName',
-        startDate: 'StartDate',
-        endDate: 'EndDate',
-        duration: 'TimeLog',
-        progress: 'Progress',
-        dependency: 'Predecessor',
-        parentID: 'ParentId',
-        resourceInfo: 'Assignee',
-    },
-    resourceFields: {
-        id: 'resourceId',
-        name: 'resourceName',
-    },
-    columns: [
-        {field: 'TaskId', width: 60, visible: false},
-        {field: 'TaskName', width: 200, headerText: 'Product Release'},
-        {
-            field: 'Assignee',
-            width: 130,
-            allowSorting: false,
-            headerText: 'Assignee',
-            template: '#columnTemplate',
-        },
-        {
-            field: 'Status',
-            minWidth: 100,
-            width: 120,
-            headerText: 'Status',
-            template: '#columnTemplate1',
-        },
-        {
-            field: 'Priority',
-            minWidth: 80,
-            width: 100,
-            headerText: 'Priority',
-            template: '#columnTemplate2',
-        },
-        {field: 'Work', width: 120, headerText: 'Planned Hours'},
-        {field: 'TimeLog', width: 120, headerText: 'Work Log'},
-    ],
-    toolbar: [
-        {
-            type: 'Input',
-            align: 'Right',
-            template: new ej.dropdowns.DropDownList({
-                dataSource: sportsData,
-                placeholder: 'View',
-                width: '90px',
-                fields: {value: 'ID', text: 'Text'},
-                change: function (args) {
-                    if (args.value == 'Grid') {
-                        gantt.setSplitterPosition('100%', 'position');
-                    } else if (args.value == 'Chart') {
-                        gantt.setSplitterPosition('0%', 'position');
-                    } else {
-                        gantt.setSplitterPosition('50%', 'position');
-                    }
-                },
-            }),
-        },
-        'ExpandAll',
-        'CollapseAll',
-    ],
-    load: function (args) {
-        var cls = document.body.className.split(' ');
-        theme = 'bootstrap4';
-    },
-    splitterSettings: {
-        position: '50%',
-    },
-    selectionSettings: {
-        mode: 'Row',
-        type: 'Single',
-        enableToggle: true,
-    },
-    tooltipSettings: {
-        showTooltip: true,
-    },
-    filterSettings: {
-        type: 'Menu',
-    },
-    allowFiltering: true,
-    gridLines: 'Vertical',
-    showColumnMenu: true,
-    timelineSettings: {
-        showTooltip: true,
-        topTier: {
-            unit: 'Month',
-            format: 'MMM yyyy',
-        },
-        bottomTier: {
-            unit: 'Day',
-            count: 4,
-            format: 'dd',
-        },
-    },
-    eventMarkers: [
-        {
-            day: '04/04/2022',
-            cssClass: 'e-custom-event-marker',
-            label: 'Q-1 Release',
-        },
-        {
-            day: '06/30/2022',
-            cssClass: 'e-custom-event-marker',
-            label: 'Q-2 Release',
-        },
-        {
-            day: '09/29/2022',
-            cssClass: 'e-custom-event-marker',
-            label: 'Q-3 Release',
-        },
-    ],
-    holidays: [
-        {
-            from: '01/01/2022',
-            to: '01/01/2022',
-            label: 'New Year holiday',
-            cssClass: 'e-custom-holiday',
-        },
-        {
-            from: '12/25/2021',
-            to: '12/26/2021',
-            label: 'Christmas holidays',
-            cssClass: 'e-custom-holiday',
-        },
-    ],
-    labelSettings: {
-        rightLabel: 'Assignee',
-        taskLabel: '${Progress}%',
-    },
-    allowResizing: true,
-    taskbarHeight: 24,
-    rowHeight: 36,
-    projectStartDate: new Date('12/17/2021'),
-    projectEndDate: new Date('10/26/2022'),
+function beforeAjaxRequest(xhr) {
+    xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
+}
+
+var remoteData = new ej.data.DataManager({
+    url: '/api/projects/1/tasks',
+    beforeAjaxRequest: "beforeAjaxRequest",
+    adaptor: new ej.data.WebApiAdaptor(),
+    crossDomain: true
 });
-gantt.appendTo('#overviewSample');
+var editingResources;
 
-async function getData() {
-    const response = await fetch("/api/projects/1/tasks");
-    const tasks = await response.json();
-    console.log(tasks.data);
-    return tasks.data;
+async function getRes() {
+    return fetch('/api/resources')
+        .then(response => response.json())
+        .then(responseJson => editingResources = responseJson);
 }
 
-async function getResources() {
-    const response = await fetch("/api/resources");
-    const resources = await response.json();
-    console.log(resources);
-    return resources.data;
+var ganttChart;
+
+async function drawChart() {
+    const editingResources = await this.getRes();
+
+    ganttChart = new ej.gantt.Gantt({
+        dataSource: remoteData,
+        dateFormat: 'MMM dd, y',
+        taskFields: {
+            id: 'taskId',
+            name: 'taskName',
+            startDate: 'startDate',
+            endDate: 'endDate',
+            duration: 'duration',
+            progress: 'progress',
+            dependency: 'dependency',
+            parentID: 'parentID',
+            notes: 'notes',
+            resourceInfo: 'resources',
+        },
+        editSettings: {
+            allowAdding: true,
+            allowEditing: true,
+            allowDeleting: true,
+            allowTaskbarEditing: true,
+            showDeleteConfirmDialog: true,
+        },
+        toolbar: [
+            'Add',
+            'Edit',
+            'Update',
+            'Delete',
+            'Cancel',
+            'ExpandAll',
+            'CollapseAll',
+            'Indent',
+            'Outdent',
+        ],
+        allowSelection: true,
+        gridLines: 'Both',
+        height: '450px',
+        treeColumnIndex: 1,
+        resourceFields: {
+            id: 'id',
+            name: 'name',
+        },
+        resources: editingResources,
+        highlightWeekends: true,
+        timelineSettings: {
+            topTier: {
+                unit: 'Week',
+                format: 'MMM dd, y',
+            },
+            bottomTier: {
+                unit: 'Day',
+            },
+        },
+        columns: [
+            {field: 'taskId', width: 80},
+            {
+                field: 'taskName',
+                headerText: 'Job Name',
+                width: '250',
+                clipMode: 'EllipsisWithTooltip',
+            },
+            {field: 'StartDate'},
+            {field: 'Duration'},
+            {field: 'Progress'},
+            {field: 'Predecessor'},
+        ],
+        eventMarkers: [
+            {day: '4/17/2019', label: 'Project approval and kick-off'},
+            {day: '5/3/2019', label: 'Foundation inspection'},
+            {day: '6/7/2019', label: 'Site manager inspection'},
+            {day: '7/16/2019', label: 'Property handover and sign-off'},
+        ],
+        labelSettings: {
+            leftLabel: 'taskName',
+            rightLabel: 'resources',
+        },
+        splitterSettings: {
+            position: '35%',
+        },
+        editDialogFields: [
+            {type: 'General', headerText: 'General'},
+            {type: 'Dependency'},
+            {type: 'Resources'},
+            {type: 'Notes'},
+        ],
+        projectStartDate: new Date('03/25/2019'),
+        projectEndDate: new Date('07/28/2019'),
+    });
+    ganttChart.appendTo('#Gantt');
 }
+
+drawChart();

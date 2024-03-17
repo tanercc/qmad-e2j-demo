@@ -13,22 +13,32 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('project_id');
-            $table->integer("TaskId");
-            $table->string("TaskName");
-            $table->dateTime("StartDate")->nullable();
-            $table->dateTime("EndDate")->nullable();
-            $table->tinyInteger("TimeLog")->nullable();
-            $table->tinyInteger("Work")->nullable();
-            $table->tinyInteger("Progress")->nullable();
-            $table->string("Status")->nullable();
-            $table->integer("ParentId")->nullable();
-            $table->json("Assignee")->nullable();
-            $table->string("Priority")->nullable();
-            $table->string("Component")->nullable();
-            $table->string("Predecessor")->nullable();
-            $table->tinyInteger("StoryPoints")->nullable();
+            $table->foreignId('project_id')->constrained('projects')->cascadeOnDelete();
+            $table->integer("taskId");
+            $table->string("taskName");
+            $table->dateTime("startDate")->nullable();
+            $table->dateTime("endDate")->nullable();
+            $table->string("dependency")->nullable();
+            $table->string("duration")->nullable();
+            $table->string("durationUnit")->nullable();
+            $table->string("progress")->nullable();
+            $table->dateTime("baselineStartDate")->nullable();
+            $table->dateTime("baselineEndDate")->nullable();
+            $table->string("expandState")->nullable();
+            $table->string("indicators")->nullable();
+            $table->string("manual")->nullable();
+            $table->string("milestone")->nullable();
+            $table->string("notes")->nullable();
+            $table->string("resourceInfo")->nullable();
+            $table->integer("segmentId")->nullable();
+            $table->string("segments")->nullable();
+            $table->string("type")->nullable();
+            $table->string("work")->nullable();
+            $table->string("cssClass")->nullable();
+            $table->integer("parentID")->nullable();
             $table->timestamps();
+
+            $table->unique(['project_id', 'taskId']);
         });
     }
 

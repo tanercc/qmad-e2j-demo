@@ -13,7 +13,8 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        return Resource::all();
+        $resources = Resource::all();
+        return response()->json($resources);
     }
 
     /**
@@ -29,7 +30,7 @@ class ResourceController extends Controller
      */
     public function show(Resource $resource)
     {
-        return $resource;
+        return response()->json($resource);
     }
 
     /**

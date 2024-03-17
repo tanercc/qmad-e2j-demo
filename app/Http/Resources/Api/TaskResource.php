@@ -15,20 +15,28 @@ class TaskResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "TaskId" => $this->TaskId,
-            "TaskName" => $this->TaskName,
-            "StartDate" => $this->StartDate,
-            "EndDate" => $this->EndDate,
-            "TimeLog" => $this->TimeLog,
-            "Work" => $this->Work,
-            "Progress" => $this->Progress,
-            "Status" => $this->Status,
-            "ParentId" => $this->ParentId,
-            "Assignee" => json_decode($this->Assignee),
-            "Priority" => $this->Priority,
-            "Component" => $this->Component,
-            "Predecessor" => $this->Predecessor,
-            "StoryPoints" => $this->StoryPoint
+            "taskId" => $this->taskId,
+            "taskName" => $this->taskName,
+            "startDate" => $this->startDate,
+            "endDate" => $this->endDate,
+            "dependency" => $this->dependency,
+            "duration" => $this->duration,
+            "durationUnit" => $this->durationUnit,
+            "progress" => $this->progress,
+            "baselineStartDate" => $this->baselineStartDate,
+            "baselineEndDate" => $this->baselineEndDate,
+            "expandState" => $this->expandState,
+            "indicators" => $this->indicators,
+            "manual" => $this->manual,
+            "milestone" => $this->milestone,
+            "notes" => $this->notes,
+            "resourceInfo" => json_decode($this->resourceInfo),
+            "segmentId" => $this->segmentId,
+            "segments" => $this->segments,
+            "type" => $this->type,
+            "work" => $this->work,
+            "cssClass" => $this->cssClass,
+            "parentID" => $this->parentID,
         ];
     }
 }

@@ -13,8 +13,12 @@ Route::get('/user', function (Request $request) {
 Route::prefix('projects')->group(function () {
     Route::get('/', [ProjectController::class, 'index']);
     Route::get('{project}', [ProjectController::class, 'show']);
+
     Route::get('{project}/tasks', [TaskController::class, 'index']);
-    Route::get('{project}/tasks/{id}', [TaskController::class, 'show']);
+    Route::get('{project}/tasks/{task}', [TaskController::class, 'show']);
+    Route::post('{project}/tasks', [TaskController::class, 'store']);
+    Route::put('{project}/tasks', [TaskController::class, 'update']);
+    Route::delete('{project}/tasks/{task}', [TaskController::class, 'destroy']);
 });
 
 Route::resource('resources', ResourceController::class);
