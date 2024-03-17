@@ -7,4 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/chart', [ChartController::class, 'index']);
+Route::get('/chart', fn() => view('chart'));
+Route::get('/grid', fn() => view('grid'));

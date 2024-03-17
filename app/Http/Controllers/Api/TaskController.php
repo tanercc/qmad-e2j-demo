@@ -27,10 +27,11 @@ class TaskController extends Controller
     public function store(Request $request, Project $project)
     {
         $data = $request->all();
-        if (is_array($data)) $data = $data[0];
-        $data['project_id'] = $project->id;
-        $data['resourceInfo'] = isset($data['resourceInfo']) ? json_encode($data['resourceInfo']) : null;
-        Task::create($data);
+        foreach ($data as $item) {
+            $item['project_id'] = $project->id;
+            $item['resourceInfo'] = isset($item['resourceInfo']) ? json_encode($item['resourceInfo']) : null;
+            Task::create($item);
+        }
         return response()->json(['success' => true]);
     }
 

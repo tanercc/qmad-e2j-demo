@@ -29,12 +29,12 @@ class ImportData extends Command
      */
     public function handle()
     {
-        $project = Project::updateOrcreate(['id' => 1], ['name' => 'Gantt Project']);
+        $project = Project::updateOrCreate(['id' => 1], ['name' => 'Gantt Project']);
 
         $contents = File::get(base_path('data/resources.json'));
         $jsonData = json_decode(json: $contents, associative: true);
         foreach ($jsonData as $item) {
-            Resource::updateOrcreate(['id' => $item['resourceId']], ['name' => $item['resourceName'],]);
+            Resource::updateOrCreate(['id' => $item['resourceId']], ['name' => $item['resourceName'],]);
         }
 
         $contents = File::get(base_path('data/data.json'));
