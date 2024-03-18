@@ -73,6 +73,20 @@
                 <span>Data Grid</span></a>
         </li>
 
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <a class="nav-link" href="chart-vue">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Gantt Chart <b>Vue</b></span></a>
+        </li>
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="grid-vue">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Grid <b>Vue</b></span></a>
+        </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

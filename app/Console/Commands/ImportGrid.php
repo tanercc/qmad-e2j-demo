@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Customer;
 use App\Models\Order;
 use App\Models\Status;
 use Illuminate\Console\Command;
@@ -37,15 +38,22 @@ class ImportGrid extends Command
             Status::create($data);
         }
 
-        $contents = File::get(base_path('data/order.json'));
+        $contents = File::get(base_path('data/customers.json'));
         $jsonData = json_decode(json: $contents, associative: true);
         foreach ($jsonData as $item) {
-            $data = $this->convertNames($item);
+            $data = $this->convertCustomerNames($item);
+            Customer::create($data);
+        }
+
+        $contents = File::get(base_path('data/orders.json'));
+        $jsonData = json_decode(json: $contents, associative: true);
+        foreach ($jsonData as $item) {
+            $data = $this->convertOrderNames($item);
             Order::create($data);
         }
     }
 
-    private function convertNames($data)
+    private function convertOrderNames($data)
     {
         return [
             "orderID" => $data['OrderID'],
@@ -59,6 +67,17 @@ class ImportGrid extends Command
             "shipRegion" => $data['ShipRegion'] ?? null,
             "shipCountry" => $data['ShipCountry'] ?? null,
             'status_id' => rand(1, 3)
+        ];
+    }
+
+    private function convertCustomerNames($data)
+    {
+        return [
+            "customerID" => $data['CustomerID'],
+            "contactName" => $data['ContactName'] ?? null,
+            "companyName" => $data['CompanyName'] ?? null,
+            "address" => $data['Address'] ?? null,
+            "country" => $data['Country'] ?? null,
         ];
     }
 }

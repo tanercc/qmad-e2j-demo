@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\ResourceController;
@@ -33,3 +34,4 @@ Route::prefix('orders')->group(function () {
 
 Route::resource('resources', ResourceController::class);
 Route::resource('statuses', StatusController::class);
+Route::resource('customers', CustomerController::class);

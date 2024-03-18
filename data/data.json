@@ -1,1 +1,548 @@
-[{"TaskID":1,"TaskName":"Project initiation","StartDate":"2019-04-01T21:00:00.000Z","EndDate":"2019-04-20T21:00:00.000Z","subtasks":[{"TaskID":2,"TaskName":"Identify site location","StartDate":"2019-04-01T21:00:00.000Z","Duration":0,"Progress":30,"resources":[1],"info":"Measure the total property area alloted for construction"},{"TaskID":3,"TaskName":"Perform soil test","StartDate":"2019-04-01T21:00:00.000Z","Duration":4,"Predecessor":"2","resources":[2,3,5],"info":"Obtain an engineered soil test of lot where construction is planned.From an engineer or company specializing in soil testing"},{"TaskID":4,"TaskName":"Soil test approval","StartDate":"2019-04-01T21:00:00.000Z","Duration":0,"Predecessor":"3","Progress":30}]},{"TaskID":5,"TaskName":"Project estimation","StartDate":"2019-04-01T21:00:00.000Z","EndDate":"2019-04-20T21:00:00.000Z","subtasks":[{"TaskID":6,"TaskName":"Develop floor plan for estimation","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Predecessor":"4","Progress":30,"resources":4,"info":"Develop floor plans and obtain a materials list for estimations"},{"TaskID":7,"TaskName":"List materials","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Predecessor":"6","resources":[4,8],"info":""},{"TaskID":8,"TaskName":"Estimation approval","StartDate":"2019-04-03T21:00:00.000Z","Duration":0,"Predecessor":"7","resources":[12,5],"info":""}]},{"TaskID":9,"TaskName":"Sign contract","StartDate":"2019-04-03T21:00:00.000Z","Duration":1,"Predecessor":"8","Progress":30,"resources":[12],"info":"If required obtain approval from HOA (homeowners association) or ARC (architectural review committee)"},{"TaskID":10,"TaskName":"Project approval and kick off","StartDate":"2019-04-03T21:00:00.000Z","EndDate":"2019-04-20T21:00:00.000Z","Duration":0,"Predecessor":"9"},{"TaskID":11,"TaskName":"Site work","StartDate":"2019-04-03T21:00:00.000Z","EndDate":"2019-04-20T21:00:00.000Z","subtasks":[{"TaskID":12,"TaskName":"Clear the building site","StartDate":"2019-04-03T21:00:00.000Z","Duration":2,"Progress":30,"Predecessor":"9","resources":[6,7],"info":"Clear the building site (demolition of existing home if necessary)"},{"TaskID":13,"TaskName":"Install temporary power service","StartDate":"2019-04-03T21:00:00.000Z","Duration":2,"Predecessor":"12","resources":[6,7],"info":""}]},{"TaskID":14,"TaskName":"Foundation","StartDate":"2019-04-03T21:00:00.000Z","EndDate":"2019-04-20T21:00:00.000Z","subtasks":[{"TaskID":15,"TaskName":"Excavate for foundations","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"13","resources":[2,8],"info":"Excavate the foundation and dig footers (Scope of work is dependent of foundation designed by engineer)"},{"TaskID":16,"TaskName":"Dig footer","StartDate":"2019-04-03T21:00:00.000Z","Duration":2,"Predecessor":"15FF","resources":[8],"info":""},{"TaskID":17,"TaskName":"Install plumbing grounds","StartDate":"2019-04-03T21:00:00.000Z","Duration":4,"Progress":30,"Predecessor":"15","resources":[9],"info":""},{"TaskID":18,"TaskName":"Pour a foundation and footer with concrete","StartDate":"2019-04-03T21:00:00.000Z","Duration":1,"Predecessor":"17","resources":[8,9,10],"info":""},{"TaskID":19,"TaskName":"Cure basement walls","StartDate":"2019-04-03T21:00:00.000Z","Duration":4,"Progress":30,"Predecessor":"18","resources":[10],"info":""}]},{"TaskID":20,"TaskName":"Framing","StartDate":"2019-04-03T21:00:00.000Z","EndDate":"2019-04-20T21:00:00.000Z","subtasks":[{"TaskID":21,"TaskName":"Add load-bearing structure","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"19","resources":[4,5],"info":"Build the main load-bearing structure out of thick pieces of wood andpossibly metal I-beams for large spans with few supports"},{"TaskID":22,"TaskName":"Install floor joists","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Predecessor":"21","resources":[2,3],"info":"Add floor and ceiling joists and install subfloor panels"},{"TaskID":23,"TaskName":"Add ceiling joists","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"22SS","resources":[5],"info":""},{"TaskID":24,"TaskName":"Install subfloor panels","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Predecessor":"23","resources":[8,9]},{"TaskID":25,"TaskName":"Frame floor walls","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"24","resources":[10],"info":""},{"TaskID":26,"TaskName":"Frame floor decking","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"25SS","resources":[4,8],"info":""}]},{"TaskID":27,"TaskName":"Exterior finishing","StartDate":"2019-04-03T21:00:00.000Z","EndDate":"2019-04-20T21:00:00.000Z","subtasks":[{"TaskID":28,"TaskName":"Cover outer walls and roof in OSB","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"26","resources":[2,8],"info":"Cover outer walls and roof in OSB or plywood and a water-resistive barrier"},{"TaskID":29,"TaskName":"Add water resistive barrier","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Predecessor":"28","resources":[1,10],"info":"Cover the walls with siding, typically vinyl, wood, or brick veneer but possibly stone or other materials"},{"TaskID":30,"TaskName":"Install roof shingles","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"29","resources":[8,9],"info":"Install roof shingles or other covering for flat roof"},{"TaskID":31,"TaskName":"Install windows","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Predecessor":"29","resources":7}]},{"TaskID":32,"TaskName":"Utilities","StartDate":"2019-04-03T21:00:00.000Z","EndDate":"2019-04-20T21:00:00.000Z","subtasks":[{"TaskID":33,"TaskName":"Install internal plumbing","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"26","resources":[1,10]},{"TaskID":34,"TaskName":"Install HVAC","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Predecessor":"33","resources":[4,9],"info":"Add internal plumbing, HVAC, electrical, and natural gas utilities"},{"TaskID":35,"TaskName":"Electrical utilities","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"34"},{"TaskID":36,"TaskName":"Natural gas utilities","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Predecessor":"35","resources":11},{"TaskID":37,"TaskName":"Install bathroom fixtures","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"35","resources":[3,7]}],"info":"Building inspector visits if necessary to approve utilities and framing"},{"TaskID":38,"TaskName":"Interior finsihing","StartDate":"2019-04-03T21:00:00.000Z","EndDate":"2019-04-20T21:00:00.000Z","subtasks":[{"TaskID":39,"TaskName":"Install insulation","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"37","resources":[1,8],"info":"Frame interior walls with wooden 2Ã—4s"},{"TaskID":40,"TaskName":"Install drywall panels","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Predecessor":"39","resources":5,"info":"Install insulation and interior drywall panels (cementboard for wet areas) and to complete walls and ceilings"},{"TaskID":41,"TaskName":"Spackle","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"40","resources":10},{"TaskID":42,"TaskName":"Apply primer","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Predecessor":"41","resources":[10,11]},{"TaskID":43,"TaskName":"Paint wall and ceilings","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"42","resources":[2,9]},{"TaskID":44,"TaskName":"Install modular kitchen","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"43","resources":[5,7]}]},{"TaskID":45,"TaskName":"Flooring","StartDate":"2019-04-03T21:00:00.000Z","EndDate":"2019-04-20T21:00:00.000Z","subtasks":[{"TaskID":46,"TaskName":"Tile kitchen, bathroom and entry walls","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Progress":30,"Predecessor":"44","resources":[4,9,3],"info":"Additional tiling on top of cementboard for wet areas, such as the bathroom and kitchen backsplash"},{"TaskID":47,"TaskName":"Tile floor","StartDate":"2019-04-03T21:00:00.000Z","Duration":3,"Predecessor":"46SS","resources":[2,8],"info":"Installation of final floor covering, such as floor tile, carpet, or wood flooring"}]},{"TaskID":48,"TaskName":"Final Acceptance","StartDate":"2019-04-03T21:00:00.000Z","EndDate":"2019-04-20T21:00:00.000Z","subtasks":[{"TaskID":49,"TaskName":"Final inspection","StartDate":"2019-04-03T21:00:00.000Z","Duration":2,"Progress":30,"Predecessor":"47","resources":12,"info":"Ensure the contracted items"},{"TaskID":50,"TaskName":"Cleanup for occupancy","StartDate":"2019-04-03T21:00:00.000Z","Duration":2,"Predecessor":"49","resources":[1,5],"info":"Installation of major appliances"},{"TaskID":51,"TaskName":"Property handover","StartDate":"2019-04-03T21:00:00.000Z","Duration":0,"Predecessor":"50","info":"Ending the contract"}]}]
+[
+    {
+        "TaskID": 1,
+        "TaskName": "Project initiation",
+        "StartDate": "2019-04-01T21:00:00.000Z",
+        "EndDate": "2019-04-20T21:00:00.000Z",
+        "subtasks": [
+            {
+                "TaskID": 2,
+                "TaskName": "Identify site location",
+                "StartDate": "2019-04-01T21:00:00.000Z",
+                "Duration": 0,
+                "Progress": 30,
+                "resources": [
+                    1
+                ],
+                "info": "Measure the total property area alloted for construction"
+            },
+            {
+                "TaskID": 3,
+                "TaskName": "Perform soil test",
+                "StartDate": "2019-04-01T21:00:00.000Z",
+                "Duration": 4,
+                "Predecessor": "2",
+                "resources": [
+                    2,
+                    3,
+                    5
+                ],
+                "info": "Obtain an engineered soil test of lot where construction is planned.From an engineer or company specializing in soil testing"
+            },
+            {
+                "TaskID": 4,
+                "TaskName": "Soil test approval",
+                "StartDate": "2019-04-01T21:00:00.000Z",
+                "Duration": 0,
+                "Predecessor": "3",
+                "Progress": 30
+            }
+        ]
+    },
+    {
+        "TaskID": 5,
+        "TaskName": "Project estimation",
+        "StartDate": "2019-04-01T21:00:00.000Z",
+        "EndDate": "2019-04-20T21:00:00.000Z",
+        "subtasks": [
+            {
+                "TaskID": 6,
+                "TaskName": "Develop floor plan for estimation",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Predecessor": "4",
+                "Progress": 30,
+                "resources": 4,
+                "info": "Develop floor plans and obtain a materials list for estimations"
+            },
+            {
+                "TaskID": 7,
+                "TaskName": "List materials",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Predecessor": "6",
+                "resources": [
+                    4,
+                    8
+                ],
+                "info": ""
+            },
+            {
+                "TaskID": 8,
+                "TaskName": "Estimation approval",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 0,
+                "Predecessor": "7",
+                "resources": [
+                    12,
+                    5
+                ],
+                "info": ""
+            }
+        ]
+    },
+    {
+        "TaskID": 9,
+        "TaskName": "Sign contract",
+        "StartDate": "2019-04-03T21:00:00.000Z",
+        "Duration": 1,
+        "Predecessor": "8",
+        "Progress": 30,
+        "resources": [
+            12
+        ],
+        "info": "If required obtain approval from HOA (homeowners association) or ARC (architectural review committee)"
+    },
+    {
+        "TaskID": 10,
+        "TaskName": "Project approval and kick off",
+        "StartDate": "2019-04-03T21:00:00.000Z",
+        "EndDate": "2019-04-20T21:00:00.000Z",
+        "Duration": 0,
+        "Predecessor": "9"
+    },
+    {
+        "TaskID": 11,
+        "TaskName": "Site work",
+        "StartDate": "2019-04-03T21:00:00.000Z",
+        "EndDate": "2019-04-20T21:00:00.000Z",
+        "subtasks": [
+            {
+                "TaskID": 12,
+                "TaskName": "Clear the building site",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 2,
+                "Progress": 30,
+                "Predecessor": "9",
+                "resources": [
+                    6,
+                    7
+                ],
+                "info": "Clear the building site (demolition of existing home if necessary)"
+            },
+            {
+                "TaskID": 13,
+                "TaskName": "Install temporary power service",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 2,
+                "Predecessor": "12",
+                "resources": [
+                    6,
+                    7
+                ],
+                "info": ""
+            }
+        ]
+    },
+    {
+        "TaskID": 14,
+        "TaskName": "Foundation",
+        "StartDate": "2019-04-03T21:00:00.000Z",
+        "EndDate": "2019-04-20T21:00:00.000Z",
+        "subtasks": [
+            {
+                "TaskID": 15,
+                "TaskName": "Excavate for foundations",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "13",
+                "resources": [
+                    2,
+                    8
+                ],
+                "info": "Excavate the foundation and dig footers (Scope of work is dependent of foundation designed by engineer)"
+            },
+            {
+                "TaskID": 16,
+                "TaskName": "Dig footer",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 2,
+                "Predecessor": "15FF",
+                "resources": [
+                    8
+                ],
+                "info": ""
+            },
+            {
+                "TaskID": 17,
+                "TaskName": "Install plumbing grounds",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 4,
+                "Progress": 30,
+                "Predecessor": "15",
+                "resources": [
+                    9
+                ],
+                "info": ""
+            },
+            {
+                "TaskID": 18,
+                "TaskName": "Pour a foundation and footer with concrete",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 1,
+                "Predecessor": "17",
+                "resources": [
+                    8,
+                    9,
+                    10
+                ],
+                "info": ""
+            },
+            {
+                "TaskID": 19,
+                "TaskName": "Cure basement walls",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 4,
+                "Progress": 30,
+                "Predecessor": "18",
+                "resources": [
+                    10
+                ],
+                "info": ""
+            }
+        ]
+    },
+    {
+        "TaskID": 20,
+        "TaskName": "Framing",
+        "StartDate": "2019-04-03T21:00:00.000Z",
+        "EndDate": "2019-04-20T21:00:00.000Z",
+        "subtasks": [
+            {
+                "TaskID": 21,
+                "TaskName": "Add load-bearing structure",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "19",
+                "resources": [
+                    4,
+                    5
+                ],
+                "info": "Build the main load-bearing structure out of thick pieces of wood andpossibly metal I-beams for large spans with few supports"
+            },
+            {
+                "TaskID": 22,
+                "TaskName": "Install floor joists",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Predecessor": "21",
+                "resources": [
+                    2,
+                    3
+                ],
+                "info": "Add floor and ceiling joists and install subfloor panels"
+            },
+            {
+                "TaskID": 23,
+                "TaskName": "Add ceiling joists",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "22SS",
+                "resources": [
+                    5
+                ],
+                "info": ""
+            },
+            {
+                "TaskID": 24,
+                "TaskName": "Install subfloor panels",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Predecessor": "23",
+                "resources": [
+                    8,
+                    9
+                ]
+            },
+            {
+                "TaskID": 25,
+                "TaskName": "Frame floor walls",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "24",
+                "resources": [
+                    10
+                ],
+                "info": ""
+            },
+            {
+                "TaskID": 26,
+                "TaskName": "Frame floor decking",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "25SS",
+                "resources": [
+                    4,
+                    8
+                ],
+                "info": ""
+            }
+        ]
+    },
+    {
+        "TaskID": 27,
+        "TaskName": "Exterior finishing",
+        "StartDate": "2019-04-03T21:00:00.000Z",
+        "EndDate": "2019-04-20T21:00:00.000Z",
+        "subtasks": [
+            {
+                "TaskID": 28,
+                "TaskName": "Cover outer walls and roof in OSB",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "26",
+                "resources": [
+                    2,
+                    8
+                ],
+                "info": "Cover outer walls and roof in OSB or plywood and a water-resistive barrier"
+            },
+            {
+                "TaskID": 29,
+                "TaskName": "Add water resistive barrier",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Predecessor": "28",
+                "resources": [
+                    1,
+                    10
+                ],
+                "info": "Cover the walls with siding, typically vinyl, wood, or brick veneer but possibly stone or other materials"
+            },
+            {
+                "TaskID": 30,
+                "TaskName": "Install roof shingles",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "29",
+                "resources": [
+                    8,
+                    9
+                ],
+                "info": "Install roof shingles or other covering for flat roof"
+            },
+            {
+                "TaskID": 31,
+                "TaskName": "Install windows",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Predecessor": "29",
+                "resources": 7
+            }
+        ]
+    },
+    {
+        "TaskID": 32,
+        "TaskName": "Utilities",
+        "StartDate": "2019-04-03T21:00:00.000Z",
+        "EndDate": "2019-04-20T21:00:00.000Z",
+        "subtasks": [
+            {
+                "TaskID": 33,
+                "TaskName": "Install internal plumbing",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "26",
+                "resources": [
+                    1,
+                    10
+                ]
+            },
+            {
+                "TaskID": 34,
+                "TaskName": "Install HVAC",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Predecessor": "33",
+                "resources": [
+                    4,
+                    9
+                ],
+                "info": "Add internal plumbing, HVAC, electrical, and natural gas utilities"
+            },
+            {
+                "TaskID": 35,
+                "TaskName": "Electrical utilities",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "34"
+            },
+            {
+                "TaskID": 36,
+                "TaskName": "Natural gas utilities",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Predecessor": "35",
+                "resources": 11
+            },
+            {
+                "TaskID": 37,
+                "TaskName": "Install bathroom fixtures",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "35",
+                "resources": [
+                    3,
+                    7
+                ]
+            }
+        ],
+        "info": "Building inspector visits if necessary to approve utilities and framing"
+    },
+    {
+        "TaskID": 38,
+        "TaskName": "Interior finsihing",
+        "StartDate": "2019-04-03T21:00:00.000Z",
+        "EndDate": "2019-04-20T21:00:00.000Z",
+        "subtasks": [
+            {
+                "TaskID": 39,
+                "TaskName": "Install insulation",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "37",
+                "resources": [
+                    1,
+                    8
+                ],
+                "info": "Frame interior walls with wooden 2Ã—4s"
+            },
+            {
+                "TaskID": 40,
+                "TaskName": "Install drywall panels",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Predecessor": "39",
+                "resources": 5,
+                "info": "Install insulation and interior drywall panels (cementboard for wet areas) and to complete walls and ceilings"
+            },
+            {
+                "TaskID": 41,
+                "TaskName": "Spackle",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "40",
+                "resources": 10
+            },
+            {
+                "TaskID": 42,
+                "TaskName": "Apply primer",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Predecessor": "41",
+                "resources": [
+                    10,
+                    11
+                ]
+            },
+            {
+                "TaskID": 43,
+                "TaskName": "Paint wall and ceilings",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "42",
+                "resources": [
+                    2,
+                    9
+                ]
+            },
+            {
+                "TaskID": 44,
+                "TaskName": "Install modular kitchen",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "43",
+                "resources": [
+                    5,
+                    7
+                ]
+            }
+        ]
+    },
+    {
+        "TaskID": 45,
+        "TaskName": "Flooring",
+        "StartDate": "2019-04-03T21:00:00.000Z",
+        "EndDate": "2019-04-20T21:00:00.000Z",
+        "subtasks": [
+            {
+                "TaskID": 46,
+                "TaskName": "Tile kitchen, bathroom and entry walls",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Progress": 30,
+                "Predecessor": "44",
+                "resources": [
+                    4,
+                    9,
+                    3
+                ],
+                "info": "Additional tiling on top of cementboard for wet areas, such as the bathroom and kitchen backsplash"
+            },
+            {
+                "TaskID": 47,
+                "TaskName": "Tile floor",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 3,
+                "Predecessor": "46SS",
+                "resources": [
+                    2,
+                    8
+                ],
+                "info": "Installation of final floor covering, such as floor tile, carpet, or wood flooring"
+            }
+        ]
+    },
+    {
+        "TaskID": 48,
+        "TaskName": "Final Acceptance",
+        "StartDate": "2019-04-03T21:00:00.000Z",
+        "EndDate": "2019-04-20T21:00:00.000Z",
+        "subtasks": [
+            {
+                "TaskID": 49,
+                "TaskName": "Final inspection",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 2,
+                "Progress": 30,
+                "Predecessor": "47",
+                "resources": 12,
+                "info": "Ensure the contracted items"
+            },
+            {
+                "TaskID": 50,
+                "TaskName": "Cleanup for occupancy",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 2,
+                "Predecessor": "49",
+                "resources": [
+                    1,
+                    5
+                ],
+                "info": "Installation of major appliances"
+            },
+            {
+                "TaskID": 51,
+                "TaskName": "Property handover",
+                "StartDate": "2019-04-03T21:00:00.000Z",
+                "Duration": 0,
+                "Predecessor": "50",
+                "info": "Ending the contract"
+            }
+        ]
+    }
+]

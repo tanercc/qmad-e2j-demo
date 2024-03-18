@@ -1,6 +1,7 @@
+
 <x-layout>
     <div id="app">
-        <data-grid></data-grid>
+        <gantt-chart></gantt-chart>
     </div>
 
     @push('styles')

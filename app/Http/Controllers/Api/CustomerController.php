@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Status;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
-class StatusController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Status::all();
+        $data = Customer::all();
         return response()->json($data);
     }
 }
