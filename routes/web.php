@@ -9,3 +9,4 @@ Route::get('/', function () {
 
 Route::get('/chart', fn() => view('chart'));
 Route::get('/grid', fn() => view('grid'));
+Route::get('/grid-vue', fn() => view('grid-vue'));
